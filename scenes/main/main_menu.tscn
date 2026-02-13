@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://bn5tvdq7st7jn"]
+
+[ext_resource type="Script" uid="uid://durmotx75qcv4" path="res://scripts/main/main_menu_control.gd" id="1_sd5it"]
+[ext_resource type="Texture2D" uid="uid://dqy4mun2ewrq4" path="res://screenshots/scales.png" id="2_5vafy"]
+[ext_resource type="Texture2D" uid="uid://b7a2c2jec2la" path="res://assets/ui/signature.png" id="3_byqcc"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_w3ui0"]
+
+[node name="MainMenu" type="Control" unique_id=1448411621]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sd5it")
+
+[node name="MenuButtons" type="VBoxContainer" parent="." unique_id=1507146502]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 292.0
+offset_bottom = 313.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 16
+
+[node name="Play" type="Button" parent="MenuButtons" unique_id=569406910]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play
+"
+
+[node name="Settings" type="Button" parent="MenuButtons" unique_id=295894517]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MenuButtons" unique_id=275686640]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="Exit" type="Button" parent="MenuButtons" unique_id=597391687]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[node name="TextureButton" type="TextureButton" parent="MenuButtons" unique_id=1360125342]
+layout_mode = 2
+texture_normal = SubResource("AnimatedTexture_w3ui0")
+
+[node name="BackGround" type="TextureRect" parent="." unique_id=1217372457]
+z_index = -4
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("2_5vafy")
+
+[node name="Sign" type="TextureRect" parent="." unique_id=1987589061]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.54114
+offset_top = -104.0
+offset_right = -39.0
+offset_bottom = -35.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("3_byqcc")
+expand_mode = 1
+
+[connection signal="pressed" from="MenuButtons/Play" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MenuButtons/Settings" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MenuButtons/Credits" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="MenuButtons/Exit" to="." method="_on_quit_button_pressed"]
