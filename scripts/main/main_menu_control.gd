@@ -1,7 +1,7 @@
 extends Control
 class_name MainMenuControl
 
-var play_scene = preload("res://scenes/gameplay/day_1/scene_1.tscn")
+var play_scene = "res://scenes/gameplay/day_1/scene_1.tscn"
 var settings_scene = preload("res://scenes/main/main_settings.tscn")
 var credits_scene = preload("res://scenes/main/main_credits.tscn")
 
@@ -12,7 +12,7 @@ func _on_play_button_pressed():
 	if ui_open:
 		return
 	
-	get_tree().change_scene_to_packed(play_scene)
+	get_tree().change_scene_to_file(play_scene)
 	
 func _on_settings_button_pressed():
 	if ui_open:

@@ -33,3 +33,9 @@ func load_cfg(path := "user://settings.cfg"):
 	else:
 		print("No settings file found, using default values.")
 		save_cfg()  # Save default settings if no file exists
+
+func clear_cfg(path := "user://settings.cfg"):
+	var config = ConfigFile.new()
+	music_volume = 0.5
+	sfx_volume = 0.5
+	config.save(path)  # This will create an empty config file, effectively clearing settings

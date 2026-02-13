@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dapooo0hyks2m"]
+
+[ext_resource type="Texture2D" uid="uid://dggtl5dw28lsk" path="res://assets/story/day_1/building/car.png" id="1_dm572"]
+[ext_resource type="Script" uid="uid://qrkggctpr2nr" path="res://scripts/gameplay/moving/car.gd" id="2_5isyy"]
+
+[node name="Car" type="Sprite2D" unique_id=396168783]
+texture = ExtResource("1_dm572")
+script = ExtResource("2_5isyy")

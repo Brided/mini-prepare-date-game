@@ -1,3 +1,35 @@
 [gd_scene format=3 uid="uid://b4r5y1hygtkvm"]
 
+[ext_resource type="Script" uid="uid://dlgsxkuv2wgns" path="res://scripts/gameplay/scene_1.gd" id="1_kk620"]
+[ext_resource type="Texture2D" uid="uid://clidr0grcxd23" path="res://assets/story/day_1/building/day_1_street.png" id="2_fapuk"]
+[ext_resource type="PackedScene" uid="uid://dapooo0hyks2m" path="res://scenes/gameplay/day_1/moving/car.tscn" id="3_grmhc"]
+
 [node name="Scene1" type="Node2D" unique_id=178181490]
+script = ExtResource("1_kk620")
+
+[node name="CarTimerR2L" type="Timer" parent="." unique_id=1983909031]
+
+[node name="CarTimerL2R" type="Timer" parent="." unique_id=445410204]
+
+[node name="Day1Street" type="Sprite2D" parent="." unique_id=1672463316]
+texture = ExtResource("2_fapuk")
+centered = false
+
+[node name="CarSpawnRight" parent="." unique_id=396168783 instance=ExtResource("3_grmhc")]
+z_index = 1
+position = Vector2(1390, 620)
+
+[node name="CarSpawnLeft" parent="." unique_id=1648220075 instance=ExtResource("3_grmhc")]
+z_index = 1
+position = Vector2(-117, 664)
+
+[node name="Cars" type="Node2D" parent="." unique_id=1651862126]
+
+[node name="Label" type="Label" parent="." unique_id=834392772]
+offset_left = 63.0
+offset_top = 39.0
+offset_right = 451.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 33
+text = "Press escape to advance"
