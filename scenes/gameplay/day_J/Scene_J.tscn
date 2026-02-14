@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://deabr6l3p3cco"]
+
+[ext_resource type="Script" uid="uid://cyjy3k1rx1mic" path="res://scripts/gameplay/scene_j.gd" id="1_uoj1w"]
+
+[node name="SceneJ" type="Node2D" unique_id=733040860]
+script = ExtResource("1_uoj1w")
+
+[node name="Label" type="Label" parent="." unique_id=2036181172]
+offset_left = 425.0
+offset_top = 226.0
+offset_right = 618.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 72
+text = "Day J"

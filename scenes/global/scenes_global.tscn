@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bo2h7xjdoq53s"]
+
+[ext_resource type="Script" uid="uid://j7idmtqio3le" path="res://scripts/global/scenes_global.gd" id="1_xou3q"]
+
+[node name="ScenesGlobal" type="Node" unique_id=1496091097]
+script = ExtResource("1_xou3q")
+metadata/_custom_type_script = "uid://j7idmtqio3le"
+
+[node name="ActionTimer" type="Timer" parent="." unique_id=870154444]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cn2gv2mpanbua"]
+
+[ext_resource type="Texture2D" uid="uid://dhwaauj8btfny" path="res://assets/story/day_1/building/window.png" id="2_bwnre"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kv7q4"]
+size = Vector2(48, 66)
+
+[node name="Window" type="Area2D" unique_id=1972734236]
+
+[node name="Window" type="Sprite2D" parent="." unique_id=1164848604]
+texture = ExtResource("2_bwnre")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1577872257]
+shape = SubResource("RectangleShape2D_kv7q4")

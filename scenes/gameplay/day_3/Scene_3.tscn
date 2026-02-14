@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cm3w8ushavxnx"]
+
+[ext_resource type="Script" uid="uid://b2eyidn1jn7bf" path="res://scripts/gameplay/scene_3.gd" id="1_4bt7p"]
+
+[node name="Scene3" type="Node2D" unique_id=769951896]
+script = ExtResource("1_4bt7p")
+
+[node name="Label" type="Label" parent="." unique_id=1786432270]
+offset_left = 425.0
+offset_top = 226.0
+offset_right = 618.0
+offset_bottom = 325.0
+theme_override_font_sizes/font_size = 72
+text = "Day 3"

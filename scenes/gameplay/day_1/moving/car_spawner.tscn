@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bdbjqlos8oha3"]
+
+[ext_resource type="Texture2D" uid="uid://dggtl5dw28lsk" path="res://assets/story/day_1/building/car.png" id="1_1lmno"]
+[ext_resource type="Script" uid="uid://c0opyiqi23x61" path="res://scripts/gameplay/moving/car_spawner.gd" id="2_1lmno"]
+
+[node name="CarSpawner" type="Sprite2D" unique_id=396168783]
+texture = ExtResource("1_1lmno")
+script = ExtResource("2_1lmno")
+
+[node name="CarTimer" type="Timer" parent="." unique_id=841491722]
+
+[connection signal="timeout" from="CarTimer" to="." method="_spawn_car"]

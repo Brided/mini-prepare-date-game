@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://b4r5y1hygtkvm"]
+
+[ext_resource type="Script" uid="uid://cnau8bsgvnra3" path="res://scripts/gameplay/controllers/building_controller.gd" id="1_fi3ed"]
+[ext_resource type="Texture2D" uid="uid://clidr0grcxd23" path="res://assets/story/day_1/building/day_1_street.png" id="2_fapuk"]
+[ext_resource type="PackedScene" uid="uid://cn2gv2mpanbua" path="res://scenes/gameplay/day_1/interact/window.tscn" id="4_kv7q4"]
+[ext_resource type="PackedScene" uid="uid://bdbjqlos8oha3" path="res://scenes/gameplay/day_1/moving/car_spawner.tscn" id="5_s7u41"]
+
+[sub_resource type="Animation" id="Animation_fi3ed"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 360)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_g20jp"]
+resource_name = "camera_zoom_in"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera2D:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(640, 360), Vector2(479, 180)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera2D:zoom")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3.835, 3.835)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_odgkj"]
+_data = {
+&"RESET": SubResource("Animation_fi3ed"),
+&"camera_zoom_in": SubResource("Animation_g20jp")
+}
+
+[node name="BuildingScene" type="Node2D" unique_id=178181490]
+script = ExtResource("1_fi3ed")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1616564355]
+libraries/ = SubResource("AnimationLibrary_odgkj")
+
+[node name="Day1Street" type="Sprite2D" parent="." unique_id=1672463316]
+texture = ExtResource("2_fapuk")
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=536567313]
+position = Vector2(640, 360)
+
+[node name="CarSpawnerRight" parent="." unique_id=1328243632 instance=ExtResource("5_s7u41")]
+z_index = 1
+position = Vector2(1382, 626)
+spawn_immediately = true
+
+[node name="CarSpawnerLeft" parent="." unique_id=396168783 instance=ExtResource("5_s7u41")]
+z_index = 2
+position = Vector2(-106, 675)
+spawn_immediately = true
+facing_right = true
+
+[node name="Window" parent="." unique_id=1972734236 instance=ExtResource("4_kv7q4")]
+position = Vector2(479, 180)
+
+[connection signal="input_event" from="Window" to="." method="_on_area_2d_input_event"]

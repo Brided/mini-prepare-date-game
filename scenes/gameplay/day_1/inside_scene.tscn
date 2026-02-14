@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cw1of888x7dw8"]
+
+[ext_resource type="Script" uid="uid://b8sxidscerty" path="res://scripts/gameplay/controllers/inside_controller.gd" id="1_jn37a"]
+[ext_resource type="Texture2D" uid="uid://dypclvpi5hx60" path="res://assets/story/day_1/inside/inside_bed.png" id="1_pg3n2"]
+
+[node name="InsideScene" type="Node2D" unique_id=1722564701]
+script = ExtResource("1_jn37a")
+
+[node name="InsideBed" type="Sprite2D" parent="." unique_id=1193230157]
+texture = ExtResource("1_pg3n2")
+centered = false

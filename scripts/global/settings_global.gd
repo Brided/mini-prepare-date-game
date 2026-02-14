@@ -1,4 +1,6 @@
 extends Node
+class_name SettingsManager
+
 # Global settings
 
 var music_volume = 0.5

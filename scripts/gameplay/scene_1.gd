@@ -1,62 +1,120 @@
 extends Node2D
+# Scene 1
 
-var ending_scene = "res://scenes/main/ending_menu.tscn"
+func load_next_scene():
+	get_tree().change_scene_to_file(ScenesGlobal.day_2)
 
-@onready var car_timer_r2l = $CarTimerR2L
-@onready var car_timer_l2r = $CarTimerL2R
+# Steps
 
-@onready var car_spawn_point = $CarSpawnRight
-@onready var car_spawn_left = $CarSpawnLeft
+@onready var timer = $ActionTimer
 
-@onready var cars = $Cars
+enum Steps{
+	START,
+	CLICK_WINDOW, # Zoom in on window
+	ENTER, # Then enter the room
+	CLICK_NOTIFICATION, # To get phone notification
+	CLICK_PHONE_VIEW, # To switch to phone view
+	CLICK_PHONE_GRAB, # To grab the phone and look at the message
+	CLICK_REPLY, # To send a reply
+	END
+}
 
-var special_car_chance = 1.0 / 1000.0 # Chance for a special car to spawn, can be used for easter eggs or special events
+var current_step = Steps.START
 
-var r2l_z_index = 0
-var l2r_z_index = 1
+func complete_step(expected_step, wait_time = ScenesGlobal.default_action_wait_time):
+	if ScenesGlobal.step_in_progress:
+		return
+	if current_step + 1 != expected_step:
+		return
+	
+	ScenesGlobal.start_action_timer(wait_time)
+	current_step = (current_step + 1) as Steps
+	_on_step_changed()
 
-var min_spawn_time = 2.0
-var max_spawn_time = 7.0
+func _on_step_changed():
+	print("Current step: %s" % current_step)
+	
+	match current_step:
+		
+		Steps.START:
+			print("This line will never happen, but it's here for completeness.")
+		
+		Steps.CLICK_WINDOW:
+			building_scene.zoom_in_on_window()
+			
+		Steps.ENTER:
+			building_scene.queue_free()
+			add_inside_scene()
+		
+		Steps.CLICK_NOTIFICATION:
+			print("Notification receiving")
+		
+		Steps.CLICK_PHONE_VIEW:
+			print("viewing phone + hand to reach phone")
+		
+		Steps.CLICK_PHONE_GRAB:
+			print("grabbing phone + looking at message")
+		
+		Steps.CLICK_REPLY:
+			print("replying to message")
+		
+		Steps.END:
+			print("End")
+			load_next_scene()
+		
+		_:
+			print("Step not implemented yet.")
 
-@onready var car_scene = preload("res://scenes/gameplay/day_1/moving/car.tscn")
+# Display
 
 func _ready():
-	randomize()
-	set_timer(car_timer_r2l, min_spawn_time, max_spawn_time)
-	set_timer(car_timer_l2r, min_spawn_time, max_spawn_time)
-	
-	_spawn_car_l2r()
-	
-	car_timer_r2l.timeout.connect(_spawn_car_r2l)
-	car_timer_l2r.timeout.connect(_spawn_car_l2r)
-
-func _input(_event):
-	if Input.is_action_just_pressed("ui_cancel"):
-		get_tree().change_scene_to_file(ending_scene)
-
-func _spawn_car_r2l():
-	var car = car_scene.instantiate()
-	car.position = car_spawn_point.position
-	car.z_index = r2l_z_index
-	
-	cars.add_child(car)
-	car.start(false)  # Start moving right to left
-	
-	# restart timer with new random interval
-	set_timer(car_timer_r2l, min_spawn_time, max_spawn_time)
-
-func _spawn_car_l2r():
-	var car = car_scene.instantiate()
-	car.position = car_spawn_left.position
-	car.z_index = l2r_z_index
-	
-	cars.add_child(car)
-	car.start(true)  # Start moving left to right
-	
-	# restart timer with new random interval
-	set_timer(car_timer_l2r, min_spawn_time, max_spawn_time)
-
-func set_timer(timer: Timer, min_time: float, max_time: float):
-	timer.wait_time = randf_range(min_time, max_time)
+	ScenesGlobal.start_action_timer(5)
 	timer.start()
 	
+	add_building_scene()
+
+var building_scene = ScenesGlobal.building_scene.instantiate()
+func add_building_scene():
+	add_child(building_scene)
+	building_scene.building_window_clicked.connect(_on_building_window_clicked)
+
+var inside_scene = ScenesGlobal.inside_scene.instantiate()
+func add_inside_scene():
+	add_child(inside_scene)
+	inside_scene.clicked.connect(_on_inside_scene_clicked)
+
+var clicked_window_times = 0
+func _on_building_window_clicked():
+	if ScenesGlobal.step_in_progress:
+		return
+	
+	clicked_window_times += 1
+	if clicked_window_times == 1:
+		complete_step(Steps.CLICK_WINDOW)
+		return
+		
+	if clicked_window_times == 2:
+		complete_step(Steps.ENTER)
+		return
+
+var clicked_inside_times = 0
+func _on_inside_scene_clicked():
+	if ScenesGlobal.step_in_progress:
+		return
+	
+	clicked_inside_times += 1
+	if clicked_inside_times == 1:
+		complete_step(Steps.CLICK_NOTIFICATION)
+		return
+	if clicked_inside_times == 2:
+		complete_step(Steps.CLICK_PHONE_VIEW)
+		return
+	if clicked_inside_times == 3:
+		complete_step(Steps.CLICK_PHONE_GRAB)
+		return
+	if clicked_inside_times == 4:
+		complete_step(Steps.CLICK_REPLY)
+		return
+	if clicked_inside_times == 5:
+		complete_step(Steps.END)
+		return

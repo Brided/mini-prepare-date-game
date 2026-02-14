@@ -7,7 +7,7 @@ var tween: Tween
 # Go 1.25 times the screen width
 @onready var length = 1.25 * 1280
 
-func start(go_right: bool = false):
+func start_moving(go_right: bool = false):
 	tween = get_tree().create_tween()
 	if go_right:
 		scale.x = -scale.x  # Flip sprite if coming from the left

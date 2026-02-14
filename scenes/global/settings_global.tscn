@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://gxhugscndm0y"]
+
+[ext_resource type="Script" uid="uid://cnyanba3sxdu4" path="res://scripts/global/settings_global.gd" id="1_t34ub"]
+
+[node name="SettingsGlobal" type="Node" unique_id=1814777800]
+script = ExtResource("1_t34ub")
+metadata/_custom_type_script = "uid://cnyanba3sxdu4"
