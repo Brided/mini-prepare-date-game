@@ -2,10 +2,349 @@
 
 [ext_resource type="Script" uid="uid://b8sxidscerty" path="res://scripts/gameplay/controllers/inside_controller.gd" id="1_jn37a"]
 [ext_resource type="Texture2D" uid="uid://dypclvpi5hx60" path="res://assets/story/day_1/inside/inside_bed.png" id="1_pg3n2"]
+[ext_resource type="Texture2D" uid="uid://b05r4mkj6bbik" path="res://assets/story/day_1/inside/phone_lying_down__idle.png" id="3_e8yjr"]
+[ext_resource type="Texture2D" uid="uid://buqaifhnf8tt1" path="res://assets/story/day_1/inside/phone_lying_down__ligtup.png" id="4_kf18q"]
+[ext_resource type="Script" uid="uid://d3fgujbjpnk8h" path="res://scripts/gameplay/moving/phone.gd" id="5_87ro2"]
+[ext_resource type="AudioStream" uid="uid://cwuk7wgvofeoy" path="res://assets/sounds/phone_notif.ogg" id="6_kf18q"]
+[ext_resource type="Texture2D" uid="uid://dlpis8hv14wru" path="res://assets/story/day_1/inside/barnaby_on_bed__extend_arm.png" id="7_26p18"]
+[ext_resource type="Texture2D" uid="uid://dr0bdd72o34s6" path="res://assets/story/day_1/inside/barnaby_on_bed__idle.png" id="7_87ro2"]
+[ext_resource type="Texture2D" uid="uid://dg8r7b3a7mwpt" path="res://assets/story/day_1/inside/looking_phone__background.png" id="9_oi3jd"]
+[ext_resource type="Texture2D" uid="uid://cuucdfcart5vh" path="res://assets/story/day_1/inside/looking_phone__received.png" id="10_uh23n"]
+[ext_resource type="Texture2D" uid="uid://bv53wrc563e5i" path="res://assets/story/day_1/inside/looking_phone__sent.png" id="11_8usok"]
+
+[sub_resource type="Animation" id="Animation_26p18"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.774, 0.774)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(664, 501.99994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"sitting"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PhoneViewBG:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PhoneViewBG/AnimatedSprite2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(639, 1080)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PhoneViewBG/AnimatedSprite2D:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"receive"]
+}
+
+[sub_resource type="Animation" id="Animation_gu5hj"]
+resource_name = "barnaby_extend_hand"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.774, 0.774)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(512, 505), Vector2(447, 494)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"extend_arm"]
+}
+
+[sub_resource type="Animation" id="Animation_t7e3q"]
+resource_name = "barnaby_turn_around"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.774, 0.774), Vector2(-0.774, 0.774)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(664, 501.99994), Vector2(512, 505)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"sitting"]
+}
+
+[sub_resource type="Animation" id="Animation_qh1ck"]
+resource_name = "show_phone"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneViewBG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhoneViewBG/AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-4, 717), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PhoneViewBG/AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"receive"]
+}
+
+[sub_resource type="Animation" id="Animation_1n1h7"]
+resource_name = "show_phone_reply"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhoneViewBG:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhoneViewBG/AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PhoneViewBG/AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"sent"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gu5hj"]
+_data = {
+&"RESET": SubResource("Animation_26p18"),
+&"barnaby_extend_hand": SubResource("Animation_gu5hj"),
+&"barnaby_turn_around": SubResource("Animation_t7e3q"),
+&"show_phone": SubResource("Animation_qh1ck"),
+&"show_phone_reply": SubResource("Animation_1n1h7")
+}
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_26p18"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_e8yjr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_kf18q")
+}],
+"loop": true,
+"name": &"notif",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7e3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_26p18")
+}],
+"loop": true,
+"name": &"extend_arm",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_87ro2")
+}],
+"loop": true,
+"name": &"sitting",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5yuli"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_uh23n")
+}],
+"loop": true,
+"name": &"receive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_8usok")
+}],
+"loop": true,
+"name": &"sent",
+"speed": 5.0
+}]
 
 [node name="InsideScene" type="Node2D" unique_id=1722564701]
 script = ExtResource("1_jn37a")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1749218010]
+libraries/ = SubResource("AnimationLibrary_gu5hj")
+
 [node name="InsideBed" type="Sprite2D" parent="." unique_id=1193230157]
 texture = ExtResource("1_pg3n2")
+centered = false
+
+[node name="Phone" type="AnimatedSprite2D" parent="." unique_id=217295841]
+position = Vector2(189, 398)
+sprite_frames = SubResource("SpriteFrames_26p18")
+animation = &"notif"
+script = ExtResource("5_87ro2")
+
+[node name="Notif" type="AudioStreamPlayer2D" parent="Phone" unique_id=505438538]
+stream = ExtResource("6_kf18q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=268757965]
+position = Vector2(664, 501.99994)
+scale = Vector2(0.774, 0.774)
+sprite_frames = SubResource("SpriteFrames_t7e3q")
+animation = &"sitting"
+
+[node name="PhoneViewBG" type="Sprite2D" parent="." unique_id=1684427893]
+modulate = Color(1, 1, 1, 0)
+texture = ExtResource("9_oi3jd")
+centered = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PhoneViewBG" unique_id=710802317]
+position = Vector2(639, 1080)
+sprite_frames = SubResource("SpriteFrames_5yuli")
+animation = &"receive"
 centered = false

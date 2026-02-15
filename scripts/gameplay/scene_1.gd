@@ -2,7 +2,7 @@ extends Node2D
 # Scene 1
 
 func load_next_scene():
-	get_tree().change_scene_to_file(ScenesGlobal.day_2)
+	ScenesGlobal.load_next_day_scene()
 
 # Steps
 
@@ -13,8 +13,8 @@ enum Steps{
 	CLICK_WINDOW, # Zoom in on window
 	ENTER, # Then enter the room
 	CLICK_NOTIFICATION, # To get phone notification
-	CLICK_PHONE_VIEW, # To switch to phone view
-	CLICK_PHONE_GRAB, # To grab the phone and look at the message
+	CLICK_PHONE_GRAB, # To grab the phone
+	CLICK_SHOW_PHONE, # To show the phone
 	CLICK_REPLY, # To send a reply
 	END
 }
@@ -48,15 +48,20 @@ func _on_step_changed():
 		
 		Steps.CLICK_NOTIFICATION:
 			print("Notification receiving")
-		
-		Steps.CLICK_PHONE_VIEW:
-			print("viewing phone + hand to reach phone")
+			inside_scene.animate_notification()
+			inside_scene.animate_turn_around()
 		
 		Steps.CLICK_PHONE_GRAB:
-			print("grabbing phone + looking at message")
+			print("grabbing phone")
+			inside_scene.animate_reach_phone()
+		
+		Steps.CLICK_SHOW_PHONE:
+			print("showing phone")
+			inside_scene.animate_show_phone()
 		
 		Steps.CLICK_REPLY:
 			print("replying to message")
+			inside_scene.animate_reply()
 		
 		Steps.END:
 			print("End")
@@ -68,7 +73,7 @@ func _on_step_changed():
 # Display
 
 func _ready():
-	ScenesGlobal.start_action_timer(5)
+	ScenesGlobal.start_action_timer()
 	timer.start()
 	
 	add_building_scene()
@@ -107,10 +112,10 @@ func _on_inside_scene_clicked():
 		complete_step(Steps.CLICK_NOTIFICATION)
 		return
 	if clicked_inside_times == 2:
-		complete_step(Steps.CLICK_PHONE_VIEW)
+		complete_step(Steps.CLICK_PHONE_GRAB)
 		return
 	if clicked_inside_times == 3:
-		complete_step(Steps.CLICK_PHONE_GRAB)
+		complete_step(Steps.CLICK_SHOW_PHONE)
 		return
 	if clicked_inside_times == 4:
 		complete_step(Steps.CLICK_REPLY)

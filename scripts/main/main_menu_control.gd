@@ -8,7 +8,7 @@ func _on_play_button_pressed():
 	if ui_open:
 		return
 	
-	get_tree().change_scene_to_file(ScenesGlobal.day_1)
+	ScenesGlobal.load_next_day_scene()
 	
 func _on_settings_button_pressed():
 	if ui_open:
