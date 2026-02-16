@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://c7ep2gywyx7da"]
 
-[ext_resource type="Script" uid="uid://dlgsxkuv2wgns" path="res://scripts/gameplay/scene_1.gd" id="1_kk620"]
+[ext_resource type="Script" uid="uid://jewr87kn5lb3" path="res://scripts/gameplay/subscene_manager.gd" id="1_kk620"]
+[ext_resource type="PackedScene" uid="uid://b4r5y1hygtkvm" path="res://scenes/gameplay/day_1/subscenes/building_scene.tscn" id="2_grmhc"]
+[ext_resource type="PackedScene" uid="uid://b6wdh1r3uwilg" path="res://scenes/gameplay/calendar_scene.tscn" id="2_kv7q4"]
+[ext_resource type="PackedScene" uid="uid://cw1of888x7dw8" path="res://scenes/gameplay/day_1/subscenes/inside_scene.tscn" id="3_kv7q4"]
 
 [node name="Scene1" type="Node2D" unique_id=62361491]
 script = ExtResource("1_kk620")
+subscene_list = Array[PackedScene]([ExtResource("2_kv7q4"), ExtResource("2_grmhc"), ExtResource("3_kv7q4")])
 
 [node name="ActionTimer" type="Timer" parent="." unique_id=1321868892]
 one_shot = true

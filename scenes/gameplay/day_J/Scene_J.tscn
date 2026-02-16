@@ -1,14 +1,9 @@
 [gd_scene format=3 uid="uid://deabr6l3p3cco"]
 
-[ext_resource type="Script" uid="uid://cyjy3k1rx1mic" path="res://scripts/gameplay/scene_j.gd" id="1_uoj1w"]
+[ext_resource type="Script" uid="uid://jewr87kn5lb3" path="res://scripts/gameplay/subscene_manager.gd" id="1_uoj1w"]
+[ext_resource type="PackedScene" uid="uid://b6wdh1r3uwilg" path="res://scenes/gameplay/calendar_scene.tscn" id="2_nonhn"]
+[ext_resource type="PackedScene" uid="uid://c3g3th1gjvpu7" path="res://scenes/gameplay/day_J/subscenes/they_kiss.tscn" id="2_qavtw"]
 
 [node name="SceneJ" type="Node2D" unique_id=733040860]
 script = ExtResource("1_uoj1w")
-
-[node name="Label" type="Label" parent="." unique_id=2036181172]
-offset_left = 425.0
-offset_top = 226.0
-offset_right = 618.0
-offset_bottom = 325.0
-theme_override_font_sizes/font_size = 72
-text = "Day J"
+subscene_list = Array[PackedScene]([ExtResource("2_nonhn"), ExtResource("2_qavtw")])

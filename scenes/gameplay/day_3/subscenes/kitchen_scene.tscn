@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://by2t1bossu2bc"]
+
+[ext_resource type="Texture2D" uid="uid://dc65hrlnd03qg" path="res://assets/story/day_3/kitchen.png" id="1_4yrqe"]
+[ext_resource type="Script" uid="uid://k1v16afehvq0" path="res://scripts/gameplay/controllers/kitchen_controller.gd" id="1_v1yxp"]
+
+[node name="KitchenScene" type="Node2D" unique_id=2113857215]
+script = ExtResource("1_v1yxp")
+
+[node name="Kitchen" type="Sprite2D" parent="." unique_id=1877289688]
+texture = ExtResource("1_4yrqe")
+centered = false

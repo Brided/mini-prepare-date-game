@@ -6,9 +6,12 @@ extends AnimatedSprite2D
 func _ready():
 	play("idle")
 	
-func set_active(active):
+func activate(active):
 	if active:
 		play("notif")
-		notif_sound.play()
+		play_sound()
 	else:
 		play("idle")
+
+func play_sound():
+	notif_sound.play()

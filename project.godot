@@ -13,6 +13,7 @@ config_version=5
 config/name="Mini Prepare Date Game"
 run/main_scene="uid://bn5tvdq7st7jn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]

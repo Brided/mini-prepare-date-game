@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://c3g3th1gjvpu7"]
+
+[ext_resource type="Script" uid="uid://bwwxofqe7sel2" path="res://scripts/gameplay/controllers/they_kiss_controller.gd" id="1_iq21a"]
+[ext_resource type="Texture2D" uid="uid://d3c2qwoped2ru" path="res://assets/story/day_1/inside/inside_couch.png" id="1_kmv0c"]
+[ext_resource type="Texture2D" uid="uid://bk5x30gc8fl4g" path="res://assets/story/day_j/they_kiss/they_kiss_sprites__alphonso.png" id="2_wa8yk"]
+[ext_resource type="Texture2D" uid="uid://bg2ys6fh3ty5y" path="res://assets/story/day_j/they_kiss/they_kiss_sprites__barnaby.png" id="3_1jbaj"]
+[ext_resource type="Texture2D" uid="uid://dgdd00f8m51q" path="res://assets/story/day_j/they_kiss/heart.png" id="4_1jbaj"]
+
+[sub_resource type="Animation" id="Animation_wa8yk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TheyKissSpritesBarnaby:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(238, 445)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TheyKissSpritesAlphonso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1101, 441)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1jbaj"]
+resource_name = "they_kiss_kiss"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TheyKissSpritesBarnaby:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(238, 445), Vector2(448, 445)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TheyKissSpritesAlphonso:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1101, 441), Vector2(816, 441)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0009999999, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iq21a"]
+_data = {
+&"RESET": SubResource("Animation_wa8yk"),
+&"they_kiss_kiss": SubResource("Animation_1jbaj")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iq21a"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 100.0
+angle_min = -9.9999895
+angle_max = 10.0000105
+direction = Vector3(0, -25, 0)
+spread = 70.0
+initial_velocity_min = 66.47
+initial_velocity_max = 66.47
+gravity = Vector3(0, -100, 0)
+
+[node name="TheyKiss" type="Node2D" unique_id=1675285373]
+script = ExtResource("1_iq21a")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2071110964]
+libraries/ = SubResource("AnimationLibrary_iq21a")
+
+[node name="InsideCouch" type="Sprite2D" parent="." unique_id=1590247322]
+texture = ExtResource("1_kmv0c")
+centered = false
+
+[node name="TheyKissSpritesAlphonso" type="Sprite2D" parent="." unique_id=1206507754]
+position = Vector2(1101, 441)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_wa8yk")
+
+[node name="TheyKissSpritesBarnaby" type="Sprite2D" parent="." unique_id=1801767311]
+position = Vector2(238, 445)
+texture = ExtResource("3_1jbaj")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1212586195]
+position = Vector2(636, 222)
+emitting = false
+texture = ExtResource("4_1jbaj")
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_iq21a")

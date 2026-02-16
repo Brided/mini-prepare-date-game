@@ -8,6 +8,9 @@ func _ready():
 	action_timer.timeout.connect(_on_timer_timeout)
 	
 	music_player.play()
+	
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_custom_mouse_cursor(cursor_idle, Input.CURSOR_ARROW, hotspot_offset)
 
 # Main Menus
 
@@ -21,8 +24,6 @@ var ending_scene = "res://scenes/main/ending_menu.tscn"
 ## Day 1
 
 var day_1 = "res://scenes/gameplay/day_1/scene_1.tscn"
-var building_scene = preload("res://scenes/gameplay/day_1/building_scene.tscn")
-var inside_scene = preload("res://scenes/gameplay/day_1/inside_scene.tscn")
 
 ## Day 2
 
@@ -68,14 +69,45 @@ func load_day_scene(day_index):
 @onready var action_timer = $ActionTimer
 @onready var default_action_wait_time = 0.5
 var step_in_progress = false
-
 func start_action_timer(wait_time = default_action_wait_time):
 	step_in_progress = true
 	action_timer.wait_time = wait_time
 	action_timer.start()
+	update_cursor_state()
 
 func _on_timer_timeout():
 	step_in_progress = false
+	update_cursor_state()
+
+# Cursor
+
+var hotspot_offset = Vector2(13, 0)
+
+var cursor_idle = preload("res://assets/cursor/walrus_cursor_scaled__idle.png")
+var cursor_click = preload("res://assets/cursor/walrus_cursor_scaled__clicked.png")
+var cursor_wait = preload("res://assets/cursor/walrus_cursor_scaled__wait.png")
+var cursor_clicked_wait = preload("res://assets/cursor/walrus_cursor_scaled__clicked_wait.png")
+
+var holding_click = false
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+			holding_click = true
+		else:
+			holding_click = false
+	
+	update_cursor_state()
+
+func update_cursor_state():
+	if holding_click and step_in_progress:
+		Input.set_custom_mouse_cursor(cursor_clicked_wait, Input.CURSOR_ARROW, hotspot_offset)
+	elif holding_click:
+		Input.set_custom_mouse_cursor(cursor_click, Input.CURSOR_ARROW, hotspot_offset)
+	elif step_in_progress:
+		Input.set_custom_mouse_cursor(cursor_wait, Input.CURSOR_ARROW, hotspot_offset)
+	else:
+		Input.set_custom_mouse_cursor(cursor_idle, Input.CURSOR_ARROW, hotspot_offset)
 
 # Music
 

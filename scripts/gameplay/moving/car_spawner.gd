@@ -5,8 +5,9 @@ extends Sprite2D
 @onready var car_scene = preload("res://scenes/gameplay/day_1/moving/car.tscn")
 @onready var car_timer = $CarTimer
 
-var min_spawn_time = 2.0
-var max_spawn_time = 7.0
+@export var min_spawn_time = 2.0
+@export var max_spawn_time = 7.0
+@export var speed_time = 10.0
 
 @export var spawn_immediately := false
 @export var facing_right := false
@@ -22,6 +23,7 @@ func _spawn_car():
 	
 	car.position = Vector2.ZERO
 	car.z_index = z_index
+	car.speed_time = speed_time
 	
 	add_child(car)
 	car.start_moving(facing_right)  # Start moving right to left
