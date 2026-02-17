@@ -324,7 +324,7 @@ texture = ExtResource("1_pg3n2")
 centered = false
 
 [node name="Phone" type="AnimatedSprite2D" parent="." unique_id=217295841]
-position = Vector2(189, 398)
+position = Vector2(216, 398)
 sprite_frames = SubResource("SpriteFrames_26p18")
 animation = &"notif"
 script = ExtResource("5_87ro2")

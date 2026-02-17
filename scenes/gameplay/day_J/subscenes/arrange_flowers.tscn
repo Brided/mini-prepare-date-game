@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dg618cui4y5wt"]
+
+[ext_resource type="Script" uid="uid://cg81w77cr2qbu" path="res://scripts/gameplay/controllers/arr_flowers_controller.gd" id="1_c18lx"]
+[ext_resource type="Texture2D" uid="uid://dg8r7b3a7mwpt" path="res://assets/story/day_1/inside/looking_phone__background.png" id="1_fj1rs"]
+[ext_resource type="PackedScene" uid="uid://bmo1nce1w4adk" path="res://scenes/gameplay/day_J/interact/draggable_flower.tscn" id="2_fj1rs"]
+[ext_resource type="Script" uid="uid://c1jwheh06ybug" path="res://scripts/gameplay/interact/flower_dragging_manager.gd" id="3_lhh5a"]
+[ext_resource type="Texture2D" uid="uid://cpbk814l8trdr" path="res://assets/story/day_3/flowers__holder.png" id="3_n7feu"]
+
+[node name="ArrangeFlowers" type="Node2D" unique_id=2110615973]
+script = ExtResource("1_c18lx")
+
+[node name="Button" type="Button" parent="." unique_id=995800812]
+z_index = 5
+offset_left = 504.0
+offset_top = 609.0
+offset_right = 714.0
+offset_bottom = 686.0
+theme_override_colors/font_color = Color(0.080783166, 0.08078342, 0.080783226, 1)
+theme_override_font_sizes/font_size = 50
+text = "Finished
+"
+
+[node name="Label" type="Label" parent="." unique_id=1126246025]
+z_index = 50
+offset_left = 94.0
+offset_top = 60.0
+offset_right = 684.0
+offset_bottom = 129.0
+theme_override_colors/font_color = Color(0.072842635, 0.072842635, 0.072842635, 1)
+theme_override_font_sizes/font_size = 50
+text = "Press Escape when done"
+
+[node name="LookingPhoneBackground" type="Sprite2D" parent="." unique_id=922995862]
+texture = ExtResource("1_fj1rs")
+centered = false
+
+[node name="Flowers" type="Node2D" parent="." unique_id=835864615]
+script = ExtResource("3_lhh5a")
+
+[node name="DraggableFlower" parent="Flowers" unique_id=802907504 instance=ExtResource("2_fj1rs")]
+position = Vector2(825, 393)
+
+[node name="DraggableFlower2" parent="Flowers" unique_id=1789216022 instance=ExtResource("2_fj1rs")]
+position = Vector2(987, 397)
+
+[node name="DraggableFlower3" parent="Flowers" unique_id=2081054457 instance=ExtResource("2_fj1rs")]
+position = Vector2(1155, 399)
+
+[node name="FlowersHolder" type="Sprite2D" parent="." unique_id=1572665748]
+z_index = 2
+position = Vector2(185, 373)
+texture = ExtResource("3_n7feu")
+
+[connection signal="pressed" from="Button" to="." method="_on_finished"]

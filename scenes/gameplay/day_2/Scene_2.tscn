@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" uid="uid://jewr87kn5lb3" path="res://scripts/gameplay/subscene_manager.gd" id="1_ik7ha"]
 [ext_resource type="PackedScene" uid="uid://b6wdh1r3uwilg" path="res://scenes/gameplay/calendar_scene.tscn" id="2_q3sx1"]
-[ext_resource type="PackedScene" uid="uid://cdobde3iea4k6" path="res://scenes/gameplay/day_2/subscenes/shop.tscn" id="2_y7qx3"]
+[ext_resource type="PackedScene" uid="uid://cdobde3iea4k6" path="res://scenes/gameplay/day_2/subscenes/shop_front.tscn" id="2_y7qx3"]
+[ext_resource type="PackedScene" uid="uid://dpbyfaosdmmw8" path="res://scenes/gameplay/day_2/subscenes/eat_breakfast_1.tscn" id="3_q3sx1"]
 
 [node name="Scene2" type="Node2D" unique_id=1836168618]
 script = ExtResource("1_ik7ha")
-subscene_list = Array[PackedScene]([ExtResource("2_q3sx1"), ExtResource("2_y7qx3")])
+subscene_list = Array[PackedScene]([ExtResource("2_q3sx1"), ExtResource("3_q3sx1"), ExtResource("2_y7qx3")])

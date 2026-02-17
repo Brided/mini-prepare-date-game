@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dpbyfaosdmmw8"]
+
+[ext_resource type="Texture2D" uid="uid://dg8r7b3a7mwpt" path="res://assets/story/day_1/inside/looking_phone__background.png" id="1_7jx7i"]
+[ext_resource type="Script" uid="uid://bt7citsufr6ex" path="res://scripts/gameplay/controllers/eat_food_controller.gd" id="1_yfn3j"]
+[ext_resource type="Texture2D" uid="uid://dw3wpg6n64qtq" path="res://assets/story/routine/plate.png" id="2_yfn3j"]
+[ext_resource type="PackedScene" uid="uid://npxy3cyyhw6d" path="res://scenes/gameplay/day_2/interact/herring.tscn" id="4_abp7n"]
+
+[node name="EatBreakfast" type="Node2D" unique_id=103704120]
+script = ExtResource("1_yfn3j")
+
+[node name="LookingPhoneBackground" type="Sprite2D" parent="." unique_id=825016603]
+texture = ExtResource("1_7jx7i")
+centered = false
+
+[node name="Plate" type="Sprite2D" parent="." unique_id=1021450944]
+position = Vector2(640, 360)
+texture = ExtResource("2_yfn3j")
+
+[node name="Foods" type="Node2D" parent="." unique_id=433255221]
+
+[node name="Herring" parent="Foods" unique_id=2041283602 instance=ExtResource("4_abp7n")]
+position = Vector2(645, 245)
+
+[node name="Herring2" parent="Foods" unique_id=744573310 instance=ExtResource("4_abp7n")]
+position = Vector2(578, 324)
+
+[node name="Herring3" parent="Foods" unique_id=1932248256 instance=ExtResource("4_abp7n")]
+position = Vector2(691, 401)
+
+[node name="Herring4" parent="Foods" unique_id=344795655 instance=ExtResource("4_abp7n")]
+position = Vector2(625, 480)

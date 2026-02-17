@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bmo1nce1w4adk"]
+
+[ext_resource type="Script" uid="uid://4ac2l62lwydw" path="res://scripts/gameplay/interact/drag_flower.gd" id="1_v0nbn"]
+[ext_resource type="Texture2D" uid="uid://d6iax53lg7ty" path="res://assets/story/day_3/flowers__flower.png" id="2_afxrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fj1rs"]
+size = Vector2(150, 568)
+
+[node name="DraggableFlower" type="Area2D" unique_id=802907504]
+script = ExtResource("1_v0nbn")
+
+[node name="FlowersFlower" type="Sprite2D" parent="." unique_id=1781411276]
+texture = ExtResource("2_afxrg")
+
+[node name="DragZone" type="CollisionShape2D" parent="." unique_id=1473427232]
+position = Vector2(4, -21)
+shape = SubResource("RectangleShape2D_fj1rs")
+
+[connection signal="mouse_entered" from="." to="." method="_mouse_enter"]
+[connection signal="mouse_exited" from="." to="." method="_mouse_exited"]
