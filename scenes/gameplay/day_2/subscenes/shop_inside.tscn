@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cbm6o2p0xm2kf"]
+
+[ext_resource type="Script" uid="uid://dw6ybit1txvni" path="res://scripts/gameplay/controllers/placeholder_controller.gd" id="1_hmh3j"]
+
+[node name="ShopInside" type="Node2D" unique_id=1736894595]
+script = ExtResource("1_hmh3j")
+
+[node name="Label" type="Label" parent="." unique_id=247344471]
+offset_left = 226.0
+offset_top = 182.0
+offset_right = 787.0
+offset_bottom = 323.0
+theme_override_font_sizes/font_size = 50
+text = "Then you shop 
+for the things you need"

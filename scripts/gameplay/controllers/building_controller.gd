@@ -19,8 +19,9 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 		return
 	
 	if event is InputEventMouseButton and event.pressed:
-		try_step("building_window_clicked")
-		ScenesGlobal.start_action_timer()
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			try_step("building_window_clicked")
+			ScenesGlobal.start_action_timer()
 		
 # Steps
 

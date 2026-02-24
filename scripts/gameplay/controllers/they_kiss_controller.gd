@@ -13,9 +13,11 @@ func _input(event):
 	if ScenesGlobal.step_in_progress:
 		return
 	
-	if event is InputEventMouseButton and event.pressed:
-		try_step("they_kiss_scene_clicked")
-		ScenesGlobal.start_action_timer(wait_time)
+	if event is InputEventMouseButton:
+		if event.button_index == MOUSE_BUTTON_LEFT:
+			if event.pressed:
+				try_step("they_kiss_scene_clicked")
+				ScenesGlobal.start_action_timer(wait_time)
 
 # Steps
 

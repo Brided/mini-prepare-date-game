@@ -91,8 +91,11 @@ var cursor_clicked_wait = preload("res://assets/cursor/walrus_cursor_scaled__cli
 var holding_click = false
 
 func _input(event):
-	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton: # Handle mouse button presses for cursor state
+		if (event.button_index == MOUSE_BUTTON_LEFT   \
+		or event.button_index == MOUSE_BUTTON_RIGHT   \
+		or event.button_index == MOUSE_BUTTON_MIDDLE) \
+		and event.pressed:
 			holding_click = true
 		else:
 			holding_click = false

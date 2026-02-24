@@ -1,5 +1,5 @@
-extends Node
-class_name ShopController
+extends Node2D
+class_name PlaceholderController
 
 signal finished
 

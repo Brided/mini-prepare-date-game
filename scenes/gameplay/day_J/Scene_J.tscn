@@ -4,7 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b6wdh1r3uwilg" path="res://scenes/gameplay/calendar_scene.tscn" id="2_nonhn"]
 [ext_resource type="PackedScene" uid="uid://c3g3th1gjvpu7" path="res://scenes/gameplay/day_J/subscenes/they_kiss.tscn" id="2_qavtw"]
 [ext_resource type="PackedScene" uid="uid://dg618cui4y5wt" path="res://scenes/gameplay/day_J/subscenes/arrange_flowers.tscn" id="3_e812f"]
+[ext_resource type="PackedScene" uid="uid://dpbyfaosdmmw8" path="res://scenes/gameplay/day_2/subscenes/eat_breakfast_1.tscn" id="3_o0nyn"]
 
 [node name="SceneJ" type="Node2D" unique_id=733040860]
 script = ExtResource("1_uoj1w")
-subscene_list = Array[PackedScene]([ExtResource("2_nonhn"), ExtResource("3_e812f"), ExtResource("2_qavtw")])
+subscene_list = Array[PackedScene]([ExtResource("2_nonhn"), ExtResource("3_o0nyn"), ExtResource("3_e812f"), ExtResource("2_qavtw")])
