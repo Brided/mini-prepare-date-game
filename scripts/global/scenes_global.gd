@@ -27,15 +27,15 @@ var day_1 = "res://scenes/gameplay/day_1/scene_1.tscn"
 
 ## Day 2
 
-var day_2 = "res://scenes/gameplay/day_2/Scene_2.tscn"
+var day_2 = "res://scenes/gameplay/day_2/scene_2.tscn"
 
 ## Day 3
 
-var day_3 = "res://scenes/gameplay/day_3/Scene_3.tscn"
+var day_3 = "res://scenes/gameplay/day_3/scene_3.tscn"
 
 ## Day J
 
-var day_j = "res://scenes/gameplay/day_J/Scene_J.tscn"
+var day_j = "res://scenes/gameplay/day_J/scene_J.tscn"
 
 # Day Manager
 
@@ -56,7 +56,7 @@ func load_next_day_scene():
 		return
 
 func load_day_scene(day_index):
-	if day_index >= 0 and day_index < day_scenes.size():
+	if day_index > 0 and day_index < day_scenes.size():
 		current_level_index = day_index
 		current_day_scene = day_scenes[current_level_index]
 		get_tree().change_scene_to_file(current_day_scene)
