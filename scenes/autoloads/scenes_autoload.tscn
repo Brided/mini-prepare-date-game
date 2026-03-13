@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://cnqviop106cqi"]
-
-[ext_resource type="Script" uid="uid://x822sqcjgfjt" path="res://scripts/scenes_logic/scenes_manager.gd" id="1_s502a"]
-
-[node name="ScenesAutoload" type="Node2D" unique_id=1063204704]
-script = ExtResource("1_s502a")
-metadata/_custom_type_script = "uid://x822sqcjgfjt"
-
-[node name="SimpleMusicLoop" type="AudioStreamPlayer2D" parent="." unique_id=272713584]

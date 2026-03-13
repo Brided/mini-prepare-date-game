@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://c3oiw61npjs5u"]
+
+[ext_resource type="Script" uid="uid://b2d07l8c2my8x" path="res://scripts/controls/main_menu_control.gd" id="1_sd5it"]
+[ext_resource type="Texture2D" uid="uid://dqy4mun2ewrq4" path="res://assets/screenshots/scales.png" id="2_5vafy"]
+
+[node name="MainMenu" type="Control" unique_id=1404469191 node_paths=PackedStringArray("start_button", "settings_button", "credits_button", "exit_button", "background_image")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sd5it")
+start_button = NodePath("MenuButtons/Play")
+settings_button = NodePath("MenuButtons/Settings")
+credits_button = NodePath("MenuButtons/Credits")
+exit_button = NodePath("MenuButtons/Exit")
+background_image = NodePath("Background")
+
+[node name="MenuButtons" type="VBoxContainer" parent="." unique_id=1507146502]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 292.0
+offset_bottom = 313.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_constants/separation = 16
+
+[node name="Play" type="Button" parent="MenuButtons" unique_id=569406910]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Settings" type="Button" parent="MenuButtons" unique_id=295894517]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MenuButtons" unique_id=275686640]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="Exit" type="Button" parent="MenuButtons" unique_id=597391687]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[node name="Background" type="TextureRect" parent="." unique_id=1330177250]
+z_index = -2
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("2_5vafy")

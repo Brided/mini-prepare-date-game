@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dqtk0c4cmocuh"]
+
+[ext_resource type="Script" uid="uid://c8hko78n2paai" path="res://scripts/scenes_logic/subscene_manager.gd" id="1_5ss8g"]
+
+[node name="Day1" type="Node2D" unique_id=767847330]
+script = ExtResource("1_5ss8g")

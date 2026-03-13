@@ -11,8 +11,21 @@ config_version=5
 [application]
 
 config/name="Mini Prepare Date Game V2"
+run/main_scene="uid://c3oiw61npjs5u"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
+
+[autoload]
+
+ScenesManager="*uid://x822sqcjgfjt"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [physics]
 
